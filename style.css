@@ -1,0 +1,16 @@
+body {
+    background-color: rgba(0,0,0,0.9);
+}
+input, button {
+    display: block;
+    box-shadow: 0 0 10px #ffd633;
+    border: 1px #ffd633 solid;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+input {
+    margin-top: 15%;
+    margin-bottom: 20px;
+}

@@ -1,7 +1,23 @@
 body {
-    background-color: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.9);
+    font-family: "Courier New", Courier, monospace;
 }
-input, button {
+h1 {
+    text-transform: uppercase;
+    color: #ffd633;
+    text-align: center;
+    margin-top: 10%;
+    font-weight: 500;
+}
+input {
+    text-align: center;
+    width: 270px;
+    margin-bottom: 20px;
+}
+ul {
+    padding: 0;
+}
+input, li {
     display: block;
     box-shadow: 0 0 10px #ffd633;
     border: 1px #ffd633 solid;
@@ -10,7 +26,12 @@ input, button {
     margin-right: auto;
     margin-left: auto;
 }
-input {
-    margin-top: 15%;
-    margin-bottom: 20px;
+li {
+    background: #fff;
+    width: 430px;
+    display: flex;
+    justify-content: space-between;
+}
+.highlightSearch {
+    background-color: #ffd633;
 }

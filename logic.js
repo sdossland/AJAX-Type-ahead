@@ -17,14 +17,38 @@ document.addEventListener("DOMContentLoaded", function () {
   //filters the cities array for the search word(s)
   function findMatches(searchWord, cities) {
     return cities.filter(function(location) {
-      const regex = new RegExp(searchWord, 'ig');
+      const regex = new RegExp(searchWord, 'gi');
       return location.city.match(regex) || location.state.match(regex);
     })
   }
 
+  //HTML input and output fields
+  const searchWords = document.querySelector('.searchWords'),
+        matchedList = document.querySelector('.matches');
+
+  //convert numbers to english format
+  function numberFormat(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   //displays the data in an unordered list
   function displayMatches() {
-
+    const matches = findMatches(this.value, cities);
+    const toDisplay = matches.map(location => {
+      const regex = new RegExp(this.value, 'gi'),
+            city = location.city.replace(regex, `<span class="highlightSearch">${this.value}</span>`),
+            state = location.state.replace(regex, `<span class="highlightSearch">${this.value}</span>`);
+      return `
+        <li>
+            <span class="cityState">${city}, ${state}</span>
+            <span class="population">${numberFormat(location.population)}</span>
+        </li>
+      `;
+    });
+    matchedList.innerHTML = toDisplay;
   }
+
+  //when user changes the input field, find the matches to display
+  searchWords.addEventListener('keyup', displayMatches);
 
 });
